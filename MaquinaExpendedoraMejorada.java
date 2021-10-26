@@ -79,11 +79,14 @@ public class MaquinaExpendedoraMejorada {
      * vacia los dos depositos
      */
     public int vaciarDineroDeLaMaquina(){
-        int depositoCliente = balanceClienteActual;
-        int depositoAcumulado = totalDineroAcumulado;
-        int depositoTotal = depositoCliente + depositoAcumulado;
-        balanceClienteActual = 0;
-        totalDineroAcumulado = 0;
+        int depositoTotal;
+        if(balanceClienteActual == 0){
+           depositoTotal = totalDineroAcumulado;
+           totalDineroAcumulado = 0;
+        }
+        else{
+            depositoTotal = -1;
+        }
         return depositoTotal;
     }
     
