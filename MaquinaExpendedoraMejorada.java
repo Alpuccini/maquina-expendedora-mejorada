@@ -76,6 +76,18 @@ public class MaquinaExpendedoraMejorada {
     }
     
     /**
+     * vacia los dos depositos
+     */
+    public int vaciarDineroDeLaMaquina(){
+        int depositoCliente = balanceClienteActual;
+        int depositoAcumulado = totalDineroAcumulado;
+        int depositoTotal = depositoCliente + depositoAcumulado;
+        balanceClienteActual = 0;
+        totalDineroAcumulado = 0;
+        return depositoTotal;
+    }
+    
+    /**
      * Cancela la operacion de compra del cliente actual y le
      * devuelve al cliente el dinero que ha introducido hasta el momento
      */
