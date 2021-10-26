@@ -12,19 +12,22 @@ public class MaquinaExpendedoraMejorada {
     private String estacionDestino;
     //contador billetes vendidos
     private int vendidos;
+    //premio o no premio
+    private boolean premio;
 
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
      * del billete que se recibe es mayor que 0.
      */
-    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino) {
+    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino, boolean premioBillete) {
         precioBillete = precioDelBillete;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
         vendidos = 0;
+        premio = premioBillete;
     }
 
     /**
@@ -78,8 +81,6 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("# Billete de tren:");
             System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
             System.out.println("# " + precioBillete + " euros.");
-            System.out.println("##################");
-            System.out.println();
             
     
             // Actualiza el total de dinero acumulado en la maquina
@@ -87,6 +88,11 @@ public class MaquinaExpendedoraMejorada {
             // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
             balanceClienteActual = balanceClienteActual - precioBillete;
             vendidos++;
+            if(premio == true) {
+                System.out.println("¡Ha ganado un premio de " + (precioBillete * 0.1) + " euros para su próxima compra en Alimerka!");
+            }
+            System.out.println("##################");
+            System.out.println();
         }
         else {
             System.out.println("Necesitas introducir " + dineroQueFalta + " euros mas!");
