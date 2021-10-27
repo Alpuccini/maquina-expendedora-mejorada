@@ -98,7 +98,9 @@ public class MaquinaExpendedoraMejorada {
                 balanceClienteActual = balanceClienteActual - precioBillete;
                 vendidos++;
                 if(premio == true) {
-                    System.out.println("¡Ha ganado un premio de " + (precioBillete * 0.1) + " euros para su próxima compra en Alimerka!");
+                    if(vendidos % 3 == 0){
+                        System.out.println("¡Ha ganado un premio de " + (precioBillete * 0.1) + " euros para su próxima compra en Alimerka!");
+                    }
                 }
                 System.out.println("##################");
                 System.out.println();
